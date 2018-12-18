@@ -24,5 +24,14 @@
   "bugs": {
     "url": "https://github.com/haxzie/wring.js/issues"
   },
-  "homepage": "https://github.com/haxzie/wring.js#readme"
+  "homepage": "https://github.com/haxzie/wring.js#readme",
+  "dependencies": {
+    "@types/js-yaml": "^3.11.2",
+    "bunyan": "^1.8.12",
+    "js-yaml": "^3.12.0"
+  },
+  "devDependencies": {
+    "@types/bunyan": "^1.8.5",
+    "@types/node": "^10.12.15"
+  }
 }

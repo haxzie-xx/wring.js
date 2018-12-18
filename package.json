@@ -1,0 +1,28 @@
+{
+  "name": "wring",
+  "version": "0.0.1",
+  "description": "Simpe string formator for javascript chatbots",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "pretest": "tsc --target es5 --outDir ./.tmp test/index.ts",
+    "test": "jasmine ./.tmp/test/index.js",
+    "start": "npm run build && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/haxzie/wring.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "strings",
+    "formator",
+    "template"
+  ],
+  "author": "haxzie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haxzie/wring.js/issues"
+  },
+  "homepage": "https://github.com/haxzie/wring.js#readme"
+}

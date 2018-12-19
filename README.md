@@ -1,5 +1,5 @@
 # Wring.js
-[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)  
+[![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)  
 A dead simple string formating and templating utility for working with YAML string collections.
 Working with [Probot](https://github.com/probot/probot) or any other chat bots? Want to store all the strings and need an efficient way to format them with user data? This is a simple solution to make the work easier.
 
@@ -51,4 +51,13 @@ Wring uses [Jest](https://jetjs.org) for testing and [ts-jest](https://kulshekha
 $ npm run test
 ```
 # Contributing
-Send Pull Requests lol :smile:
+Open and issue and discuss the changes with a maintainer. Submit PRs only for issues that's been discussed. Feel free to submit PRs to fix typos and documentation without opening an issue :heart:
+
+# TODO
+- [X] Enable sub collections 
+- [ ] Strict checking of given yaml file
+- [ ] Support for JSON files
+- [ ] Manually load data into collection
+
+# License
+[MIT License](https://github.com/haxzie/wring.js/blob/master/LICENSE) © [Musthaq Ahamad](https://github.com/haxzie) 2018-19

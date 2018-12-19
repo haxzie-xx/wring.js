@@ -1,0 +1,5 @@
+user:
+  welcome: |
+    Hello {{user}}!
+  greet: |
+    Hola {{user}}!

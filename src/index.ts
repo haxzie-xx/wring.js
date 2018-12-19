@@ -71,7 +71,7 @@ export class Wring {
              * object should contain key value pairs
              * @param items 
              */
-            with(items: doc) {
+            format(items: doc) {
                 let result = this.message.toString();
 
                 for (let key of Object.keys(items)) {
@@ -86,7 +86,7 @@ export class Wring {
          * 
          * @param key 
          */
-        format(key: string) {
+        with(key: string) {
             if (key in this.data) {
                 return new this.Formatter(this.data[key]);
             } else {

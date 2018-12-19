@@ -42,7 +42,7 @@ test('Format all the test strings', () => {
     let yamlContents = yaml.safeLoad(fs.readFileSync(path.join(__dirname, testYaml), 'utf-8'));
 
     for (let key of Object.keys(yamlContents)) {
-        let result = collection.format(key).with(testObject);
+        let result = collection.with(key).format(testObject);
         expect(result).toBe(resultCollection.get(key));
     }
 });

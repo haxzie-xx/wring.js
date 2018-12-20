@@ -103,9 +103,23 @@ export class Wring {
      * @param filePath 
      */
     load(filePath : string) {
+        let logData = {
+            message: `Loading data file..`,
+            givenFile: filePath,
+            moduleParent: module.parent.filename,
+            currentDir: __dirname,
+            resolvedDir: path.resolve(path.dirname(module.parent.filename)),
+            relativePath: path.relative(process.cwd(), filePath)
+        };
+
+        console.log(logData);
+
+
         if (filePath && fs.existsSync(path.resolve(path.dirname(module.parent.filename), filePath))) {
             try {
+                
                 let yamlFilePath = path.resolve(path.dirname(module.parent.filename), filePath);
+
                 let yamlContents = yaml.safeLoad(fs.readFileSync(yamlFilePath, 'utf-8'));
                 
                 return new this.Collection(yamlContents);
@@ -117,7 +131,7 @@ export class Wring {
             };
         } else {
             // Unable to open file from specified file path
-            log.error(`Unable to open data file: ${filePath}`);
+            log.error(`Unable to open data file: ${path.resolve(path.dirname(module.parent.filename), filePath)}`);
             return null;
         }
     }

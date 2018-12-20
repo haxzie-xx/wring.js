@@ -1,7 +1,7 @@
 import * as fs from 'fs';
-import * as path from 'path';
 import * as yaml from 'js-yaml';
 import * as bunyan from 'bunyan';
+import * as path from 'path';
 const log = bunyan.createLogger({name: 'wring'});
 
 // Type for the Yaml document
@@ -102,37 +102,28 @@ export class Wring {
      * Checks for valid files and loads using js-yaml
      * @param filePath 
      */
-    load(filePath : string) {
-        let logData = {
-            message: `Loading data file..`,
-            givenFile: filePath,
-            moduleParent: module.parent.filename,
-            currentDir: __dirname,
-            resolvedDir: path.resolve(path.dirname(module.parent.filename)),
-            relativePath: path.relative(process.cwd(), filePath)
-        };
+    load(filePath : string, dirname? : string) : any {
 
-        console.log(logData);
+        // generate the path if directory name is provided
+        if (dirname) {
+            filePath = path.join(dirname, filePath);
+        }
 
-
-        if (filePath && fs.existsSync(path.resolve(path.dirname(module.parent.filename), filePath))) {
+        if (filePath && fs.existsSync(filePath)) {
             try {
                 
-                let yamlFilePath = path.resolve(path.dirname(module.parent.filename), filePath);
-
-                let yamlContents = yaml.safeLoad(fs.readFileSync(yamlFilePath, 'utf-8'));
+                let yamlContents = yaml.safeLoad(fs.readFileSync(filePath, 'utf-8'));
                 
                 return new this.Collection(yamlContents);
 
             } catch (error) {
                 // error when opening or parsing file
                 log.error(`Unable to load file : ${error}`);
-                return null;
+                return process.exit(-1);
             };
         } else {
             // Unable to open file from specified file path
-            log.error(`Unable to open data file: ${path.resolve(path.dirname(module.parent.filename), filePath)}`);
-            return null;
+            throw new Error(`Unable to open data file: ${filePath}`)
         }
     }
 

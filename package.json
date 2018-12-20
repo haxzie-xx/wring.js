@@ -1,7 +1,7 @@
 {
   "name": "wring-js",
-  "version": "0.0.1",
-  "description": "Simpe string formator for javascript chatbots",
+  "version": "0.0.2",
+  "description": "Dead Simpe string formator for javascript chatbots",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

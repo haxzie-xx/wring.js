@@ -31,9 +31,21 @@ user:
     sayGoodMorning: |
         Good Morning {{user}}
 ```
-Create a new collection of string from the YAML file
+Create a new collection of string from the YAML file.  
+`wring.load()` takes the absolute path of the YAML file to be loaded and returns a `Collection`.  
+eg:
 ```javascript
-let myCollection = wring.load('my_strings.yml');
+let myCollection = wring.load('/user/home/project/my_strings.yml');
+```
+If you only have the absolute path of the file, you can achieve this by requiring the `path` module or simply pass the `__dirname` as second argument for the function.
+```javascript
+// simply pass the __dirname as the second argument
+let myCollection = wring.load('path/to/my_strings.yml', __dirname);
+
+// or you can do it yourself by using the path module
+const path = require('path');
+let myCollection = wring.load(path.join(__dirname, 'path/to/my_strings.yml'));
+
 ```
 Pick a string and format it using an object with key value pairs.
 ```javascript

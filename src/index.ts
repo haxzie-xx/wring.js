@@ -60,9 +60,8 @@ export class Wring {
          * Class to format a given string with specified objects
          */
         private Formatter = class {
-            private message: string;
 
-            constructor (message: string) {
+            constructor (private message: string) {
                 this.message = message;
             }
 

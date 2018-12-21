@@ -1,8 +1,6 @@
 import * as fs from 'fs';
 import * as yaml from 'js-yaml';
-import * as bunyan from 'bunyan';
 import * as path from 'path';
-const log = bunyan.createLogger({name: 'wring'});
 
 // Type for the Yaml document
 type keys = string | number;
@@ -90,7 +88,7 @@ export class Wring {
             if (key in this.data) {
                 return new this.Formatter(this.data[key]);
             } else {
-                log.error()
+                console.error(`Key not found in collection`)
                 return null;
             }
         }
@@ -118,7 +116,7 @@ export class Wring {
 
             } catch (error) {
                 // error when opening or parsing file
-                log.error(`Unable to load file : ${error}`);
+                console.error(`Unable to load file : ${error}`);
                 return process.exit(-1);
             };
         } else {

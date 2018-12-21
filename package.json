@@ -27,7 +27,6 @@
   "homepage": "https://github.com/haxzie/wring.js#readme",
   "dependencies": {
     "@types/js-yaml": "^3.11.2",
-    "bunyan": "^1.8.12",
     "js-yaml": "^3.12.0"
   },
   "devDependencies": {

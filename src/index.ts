@@ -3,8 +3,8 @@ import * as yaml from 'js-yaml';
 import * as path from 'path';
 
 // Type for the Yaml document
-type keys = string | number;
-type doc = {
+export type keys = string | number;
+export type doc = {
     [K in keys] : any;
 }
 

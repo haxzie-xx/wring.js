@@ -37,7 +37,7 @@ eg:
 ```javascript
 let myCollection = wring.load('/user/home/project/my_strings.yml');
 ```
-If you only have the absolute path of the file, you can achieve this by requiring the `path` module or simply pass the `__dirname` as second argument for the function.
+If you only have the relative path of the file, you can achieve this by requiring the `path` module or simply pass the `__dirname` as second argument for the function.
 ```javascript
 // simply pass the __dirname as the second argument
 let myCollection = wring.load('path/to/my_strings.yml', __dirname);

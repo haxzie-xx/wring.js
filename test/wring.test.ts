@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
-import { Wring } from '../src';
+import { Wring, Collection } from '../src';
 const wring = new Wring();
 const testYaml = 'test-strings.yml';
 const testResultYaml = 'test-result-strings.yml';
@@ -24,12 +24,12 @@ const testObject = {
 };
 
 test('Load the strings from yaml to a wring collection', () => {
-    let collection = wring.load(testYaml, __dirname);
+    let collection = new Collection(testYaml, __dirname);
     expect(collection.size()).toBe(3);
 });
 
 test('Get all the items in a loaded collection', () => {
-    let collection = wring.load(testYaml, __dirname);
+    let collection = new Collection(testYaml, __dirname);
     let yamlContents = yaml.safeLoad(fs.readFileSync(path.join(__dirname, testYaml), 'utf-8'));
 
     for (let key of Object.keys(yamlContents)) {
@@ -40,8 +40,8 @@ test('Get all the items in a loaded collection', () => {
 
 test('Format all the test strings', () => {
 
-    let collection = wring.load(testYaml, __dirname);
-    let resultCollection = wring.load(testResultYaml, __dirname);
+    let collection = new Collection(testYaml, __dirname);
+    let resultCollection = new Collection(testResultYaml, __dirname);
     let yamlContents = yaml.safeLoad(fs.readFileSync(path.join(__dirname, testYaml), 'utf-8'));
 
     for (let key of Object.keys(yamlContents)) {
@@ -51,7 +51,7 @@ test('Format all the test strings', () => {
 });
 
 test ('Check to use nested collections', () => {
-    let objectCollection = wring.load(testObjectYaml, __dirname);
+    let objectCollection = new Collection(testObjectYaml, __dirname);
     let collection = objectCollection.from('user');
 
     let resultObjectCollection = yaml.safeLoad(fs.readFileSync(path.join(__dirname, testResultObjectYaml), 'utf-8'));

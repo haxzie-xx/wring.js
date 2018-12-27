@@ -20,8 +20,7 @@ export class Formatter {
             // add \\ before each character in the delimiter
             let escaped = dPart.split('').map((letter) => {
                 return `\\${letter}`;
-            }).join();
-
+            }).join('');
             return(escaped);
         }
 

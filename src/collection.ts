@@ -62,6 +62,17 @@ export class Collection {
             throw new Error(`Couldnt find the key: ${key} in collection.`)
         }
     }
+    // =============================================================================
+    /**
+     * Method to get all the keys in the loaded collection
+     */
+    getKeys(): any[] {
+        if (this.data) {
+            return Object.keys(this.data);
+        } else {
+            throw new Error(`No data loaded into the collection`);
+        }
+    }
 
     // =============================================================================
     /**

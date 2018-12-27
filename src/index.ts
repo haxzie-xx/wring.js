@@ -1,5 +1,5 @@
 
-import { Collection } from './collection';
+export { Collection } from './collection';
 import { Formatter } from './formatter';
 
 // Type for the Yaml document
@@ -23,7 +23,6 @@ export class Wring {
     }
 }
 
-exports.Collection = Collection;
 
 
 

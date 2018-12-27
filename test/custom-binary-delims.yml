@@ -1,0 +1,6 @@
+welcome: |
+  Hello, ${user}!
+congratulate: |
+  Hey ${user}, congratulations on your ${number} PR for ${repo}!
+waywo: |
+  This is ${1} and I am currently working on ${2} and ${3}

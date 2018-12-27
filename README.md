@@ -1,6 +1,6 @@
 # Wring.js
 [![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)  
-A dead simple string formating and templating utility for working with YAML string collections.
+A Dead simple string formating and templating utility for working with YAML string collections.
 Working with [Probot](https://github.com/probot/probot) or any other chat bots? Want to store all the strings and need an efficient way to format them with user data? This is a simple solution to make the work easier.
 
 # Usage
@@ -55,6 +55,12 @@ const path = require('path');
 let myCollection = new Collection(path.join(__dirname, 'path/to/my_strings.yml'));
 
 ```
+### Using existing data
+Or Create a collection with existing JSON object with key value pairs.
+```javascript
+let myCollection = new Collection().load(<YOUR_JSON_OBJECT>);
+```
+### Fetching and Formatting
 Pick a string and format it using an object with key value pairs.
 ```javascript
 let welcomeString  = myCollection.with('welcome').format({ user: 'haxzie' });
@@ -87,9 +93,9 @@ Open and issue and discuss the changes with a maintainer. Submit PRs only for is
 
 # TODO
 - [X] Enable sub collections 
+- [X] Manually load data into collection
 - [ ] Strict checking of given yaml file
 - [ ] Support for JSON files
-- [ ] Manually load data into collection
 
 # License
 [MIT License](https://github.com/haxzie/wring.js/blob/master/LICENSE) © [Musthaq Ahamad](https://github.com/haxzie) 2018-19
